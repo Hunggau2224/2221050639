@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <JavaScript-1></JavaScript-1>
+    </title>
+</head>
+
+<body>
+    <!-- Internal JavaScript -->
+    <script>
+        // in ra màn hình
+        document.writeln("Hello World! <br> ");
+
+        <!-- khai báo biến  -->
+        var name = "Hung Gau <br> ";
+        document.writeln(name);
+
+        name = "Hue Gau <br>";
+        document.writeln(name);
+
+        var year = 2026;
+        document.writeln(year)
+
+        // phép toán
+        var soThuNhat = 10;
+        var soThuHai = 5;
+        var ketQua = 0;
+        // cộng : +
+        document.writeln("<br> Kết quả soThuNhat + soThuHai la: ")
+        ketQua = soThuNhat + soThuHai;
+        document.writeln(ketQua);
+        // Trừ -
+        document.writeln("<br> Kết quả soThuNhat - soThuHai la: ")
+        ketQua = soThuNhat - soThuHai;
+        document.writeln(ketQua);
+        // Nhân *
+        document.writeln("<br> Kết quả soThuNhat * soThuHai la: ")
+        ketQua = soThuNhat * soThuHai;
+        document.writeln(ketQua);
+        // Chia /
+        document.writeln("<br> Kết quả soThuNhat / soThuHai la: ")
+        ketQua = soThuNhat / soThuHai;
+        document.writeln(ketQua);
+        // Chia %
+        document.writeln("<br> Kết quả soThuNhat % soThuHai la: ")
+        ketQua = soThuNhat % soThuHai;
+        document.writeln(ketQua);
+
+        // ++
+        document.writeln("<br>");
+        document.writeln(++soThuNhat)
+            // --
+        document.writeln("<br>");
+        document.writeln(--soThuNhat)
+
+        // +=
+        soThuNhat += soThuHai;
+        document.writeln(soThuNhat);
+        // -=
+        soThuNhat -= soThuHai;
+        document.writeln(soThuNhat);
+
+        var ho = "Luong";
+        document.writeln("<br>" +
+            ho + " " + name);
+        document.writeln(ho.length);
+        // Kiểm tra kiểu dữ liệu của biến
+        document.writeln("<br>");
+        document.writeln(typeof(ho));
+        document.writeln("<br>");
+
+        var hoVaTen = "Luong Quang Anh";
+        document.writeln(hoVaTen.indexOf("Q"));
+        document.writeln("<br>");
+        document.writeln(hoVaTen.includes("e"));
+        document.writeln("<br>");
+
+        document.writeln(hoVaten.startsWith("Luong"));
+        document.writeln("<br>");
+        document.writeln(hoVaTen.replace("Luong", "Do"));
+
+        document.writeln("<br>");
+        document.writeln(hoVaTen.toUpperCase());
+        document.writeln("<br>");
+        document.writeln(hoVaTen.toLowerCase());
+    </script>
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
