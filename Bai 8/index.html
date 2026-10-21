@@ -224,6 +224,65 @@
         } else {
             document.write("So ", so, " la so le");
         }
+
+        // switch case
+        var d = new Date();
+        var theDay = d.getDay
+        switch (theDay) {
+            case 5:
+                document.writeln("Finally Friday");
+                break;
+            case 6:
+                document.writeln("Super Saturday");
+            case 0:
+                document.writeln("Sleepy Sunday");
+                break;
+            default:
+                document.writeln("I'm looking forward to this weekend");
+
+        }
+
+        for (var index = 1; index <= 1000; index++) {
+            document.writeln("<br>");
+            document.writeln(index);
+        }
+
+        // var mang = [1, 2, 3, 4, 5, a, b, c, d, e];
+        // for (var i = 1; i < mang.length; i++) {
+        //     if (isNaN(mang[i]) == true) {
+        //         document.writeln("<br>");
+        //         document.writeln("xin chao " + mang[i]);
+        //     }
+        // }
+
+        //while
+        var i = 0;
+        while (i <= 10) {
+            document.writeln("The number is " + i);
+            document.writeln(" <br> ");
+            i = i + 1;
+        }
+
+        // do while
+        var j = 0;
+        do {
+            document.writeln("The number is " + j);
+            document.writeln("<br>");
+            j = j + 1;
+        } while (j <= 10);
+
+        // popup boxes
+        alert("Hello");
+
+        var r = confirm("Press a button")
+        if (r == true) {
+            document.writeln("You pressed OK!");
+        } else {
+            document.writeln("You pressed Cancel!");
+        }
+
+        var R = prompt("Nhap vao ho va ten", "Nhap ten o day");
+        document.writeln(r);
     </script>
     <!--External Script-->
     <script src="script.js"></script>

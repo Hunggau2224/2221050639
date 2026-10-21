@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        Nhập Điểm A: <input id="diemA" type="number">
+    </div>
+    <div>
+        Nhập Điểm B: <input id="diemB" type="number">
+    </div>
+    <div>
+        Nhập Điểm C: <input id="diemC" type="number">
+    </div>
+    <div>
+        <button onclick="tinhDiem()">Tinh Diem</button>
+    </div>
+    <div>
+        Ket Qua: <input id="ketQua" type="text">
+    </div>
+    <h1>Tinh Tuoi</h1>
+    <div>
+        Nam sinh: <input id="namSinh" type="text">
+    </div>
+    <div>
+        Tuoi: <input id="tuoi" type="text">
+    </div>
+    <div>
+        <button onclick="tinhTuoi()">Tinh Tuoi</button>
+    </div>
+    <script>
+        function tinhTuoi() {
+            var namSinh = parseInt(document.getElementById("namSinh").value);
+            var thoiGian = new Date();
+            var namNay = thoiGian.getFullYear();
+            var tuoi = namNay - namSinh;
+            document.getElementById("tuoi").value = tuoi;
+        }
+
+        function tinhDiem() {
+            var a = parseFloat(document.getElementById("diemA").value);
+            var b = parseFloat(document.getElementById("diemB").value);
+            var c = parseFloat(document.getElementById("diemC").value);
+
+            document.getElementById("ketQua").value = tinhDiemChu(a, b, c);
+        }
+
+        function tinhDiemChu(a, b, c) {
+            var tong = a * 0.6 + b * 0.3 + c * 0.1;
+            var kq = "";
+            if (tong >= 0 && tong < 4) {
+                kq = "F";
+            } else if (tong >= 4 && tong < 6) {
+                kq = "D";
+            } else if (tong >= 6 && tong < 7) {
+                kq = "C";
+            } else if (tong >= 7 && tong < 8) {
+                kq = "B";
+            } else if (tong >= 8 && tong < 10) {
+                kq = "A";
+            } else {
+                kq = "Diem khong hop le";
+            }
+            return kq;
+        }
+
+        //function 
+        function sayHello() {
+            document.writeln("Hello");
+        }
+
+        sayHello();
+
+        // co tham so
+        function sayHello2(ten) {
+            document.writeln("<br> Xin chao " + ten);
+        }
+
+        sayHello2(Hung);
+        sayHello2(Hue);
+        document.writeln("<br>");
+
+        function tinhTong(a, b) {
+            if (isNaNa(a) == false && isNaN(b) == false) {
+                document.writeln(a + b);
+            }
+        }
+        var soThuNhat = prompt("Nhap so thu nhat: ", "");
+        var soThuHai = prompt("Nhap so thu hai: ", "");
+        document.writeln(tinhTong(soThuNhat, soThuHai));
+    </script>
+
+</body>
+
+</html>
