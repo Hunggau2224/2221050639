@@ -23,7 +23,6 @@
                 <li class="muc"><a class="lien-ket-muc" href="#!">Netflix của tôi</a></li>
                 <li class="muc"><a class="lien-ket-muc" href="#!">Duyệt tìm theo ngôn ngữ</a></li>
             </ul>
-
         </nav>
         <div class="chuc-nang">
             <div class="tim-kiem"></div>
@@ -34,8 +33,14 @@
     </header>
 
     <main>
-        <div class="banner">
+        <!-- Banner -->
+        <div onclick="xemTrailer()" class="banner">
             <img class="banner-anh" src="./assets/banner.jpg" alt="">
+        </div>
+        <!-- Trailer -->
+        <div style="display: none" class="banner">
+            <iframe class="banner-anh" width="560" height="315" src="https://www.youtube.com/embed/kErw6vyHo24?si=DlAkTq2pwuSBSkxs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         <div class="danh-sach-the-loai">
             <div class="the-loai">
@@ -149,6 +154,14 @@
             </div>
         </div>
     </main>
+    <script>
+        function xemTrailer() {
+            // An Banner
+            document.getElementsByClassName("banner")[0].style = "display: none";
+            // Hien thi Trailer
+            document.getElementsByClassName("banner")[1].style = "display: block";
+        }
+    </script>
 
     <!-- <footer class="footer">
         <div class="cot">
