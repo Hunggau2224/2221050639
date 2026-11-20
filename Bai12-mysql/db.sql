@@ -82,7 +82,7 @@ INSERT INTO `dao_dien`(`ho_ten`, `ngay_sinh`) VALUES ('Nguyễn Văn A','1999-01
 INSERT INTO `dao_dien`(`ho_ten`, `ngay_sinh`) VALUES ('Lương Văn B','1998-01-01');
 INSERT INTO `dao_dien`(`ho_ten`, `ngay_sinh`) VALUES ('Trần Văn C','1997-01-01');
 INSERT INTO `dao_dien`(`ho_ten`, `ngay_sinh`) VALUES ('Lê Văn D','1996-01-01');
-INSERT INTO `dao_dien`(`ho_ten`, `ngay_sinh`) VALUES ('Bùi Văn H','1995-01-01');
+INSERT INTO `dao_dien`(`ho_ten`, `ngay_sinh`) VALUES ('Bùi Văn H','1995-01-01'); `dien_vien`
 
 --phim
 INSERT INTO `phim`(`ten_phim`, `quoc_gia`, `nam`, `do_tuoi`, `dao_dien_id`) VALUES ('Thỏ Ơi','Việt Nam','2025','16', 1);
@@ -106,6 +106,11 @@ INSERT INTO `phim_dien_vien`(`phim_id`, `dien_vien_id`) VALUES (2,3);
 INSERT INTO `phim_dien_vien`(`phim_id`, `dien_vien_id`) VALUES (2,4);
 INSERT INTO `phim_dien_vien`(`phim_id`, `dien_vien_id`) VALUES (5,4);
 INSERT INTO `phim_dien_vien`(`phim_id`, `dien_vien_id`) VALUES (3,4);
+INSERT INTO phim_the_loai (phim_id, the_loai_id)
+VALUES (1, 2);
 
 --nguoi_dung
-INSERT INTO `nguoi_dung`(`ten_dang_nhap`, `mat_khau`, `email`, `ho_ten`, `ngay_sinh`, `so_dien_thoai`, `gioi_tinh`) VALUES ('abc123','xyz456','abc123@gmail.com','Nguyễn Văn Hùng','2004-01-24','0999999999',0);
+INSERT INTO `nguoi_dung`
+(`ten_dang_nhap`, `mat_khau`, `email`, `ho_ten`, `ngay_sinh`, `so_dien_thoai`, `gioi_tinh`)
+VALUES
+('abc123', '123456', 'abc@gmail.com', 'Nguyen Van A', '2004-01-24', '0987654321', 0);

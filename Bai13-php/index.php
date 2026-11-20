@@ -76,7 +76,7 @@ switch($color){
     default:
         echo "<br>";
         echo "no color"
-        break
+        break;
 }
 //for
 for($i = 0;$i <100;$i++){
