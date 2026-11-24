@@ -1,15 +1,17 @@
 <?php
-$serverName = 'localhost';
-$userName = 'root';
-$password = '';
-$dbname = 'netflix';
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "netflix";
 
-// Create connection
-$conn = mysqli_connect($serverName, $userName, $password, $dbname);
+    //Create connection
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-// Check connection
-if (!$conn) {
-    die('Connection failed: ' . mysqli_connect_error());
-}
-// echo 'Connected successfully';
+    //Check connection
+    if (!$conn) {
+        die("Connection failed: ". mysqli_connect_error());
+
+    }
+    echo "Connected sucessfully";
+
 ?>

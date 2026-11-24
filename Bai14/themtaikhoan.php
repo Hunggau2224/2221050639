@@ -1,99 +1,135 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Thêm tài khoản</title>
     <style>
         .khoi {
             border: 1px solid black;
             border-radius: 10px;
             width: 250px;
-            margin: 20px auto;
+            margin: 20vh auto;
             background-color: antiquewhite;
         }
-        input {
+
+        .i-text input {
             padding: 5px 0;
             margin: 10px 0;
+            width: 100%;
+        }
+
+        button {
+            padding: 5px 0;
+            width: 100%;
         }
 
         form {
             padding: 10px;
         }
+
         h1 {
             margin: 5px 0;
-            text-align: center;
-        }
-        p {
-            font-size: 20px;
         }
     </style>
 </head>
 <body>
+
     <h1>Thêm tài khoản</h1>
-    <form action="" method="post">
-        <div class="">
+
+    <form class="khoi" action="index.php?page_layout=themtaikhoan" method="POST">
+
+        <div class="i-text">
             <input type="text" name="tenDangNhap" placeholder="Tên đăng nhập">
         </div>
-        <div class="">
+
+        <div class="i-text">
             <input type="password" name="matKhau" placeholder="Mật khẩu">
         </div>
-        <div class="">
+
+        <div class="i-text">
             <input type="email" name="email" placeholder="Email">
         </div>
-        <div class="">
+
+        <div class="i-text">
             <input type="text" name="hoten" placeholder="Họ và tên">
         </div>
-        <div class="">
-            <input type="date" name="ngaySinh" placeholder="Ngày sinh">
+
+        <div class="i-text">
+            <input type="date" name="ngaysinh">
         </div>
-        <div class="">
-            <input type="text" name="soDienThoai" placeholder="Số điện thoại">
+
+        <div class="i-text">
+            <input type="text" name="sdt" placeholder="Số điện thoại">
         </div>
-        <div class="">
-            <input type="radio" name="gioiTinh" value="1"> Nam
-            <input type="radio" name="gioiTinh" value="0"> Nữ
+
+        <div>
+            <input type="radio" name="gioitinh" value="1" checked> Nam
+            <input type="radio" name="gioitinh" value="0"> Nữ
         </div>
+
+        <button type="submit">Thêm</button>
+
     </form>
 
-    <?php 
-        if (isset($_POST['tenDangNhap']) &&
-            isset($_POST['matKhau']) &&
-            isset($_POST['email']) &&
-            isset($_POST['hoten']) &&
-            isset($_POST['ngaySinh']) &&
-            isset($_POST['sdt']) &&
-            isset($_POST['sdt'])
-        ) {
-            $tenDangNhap = $_POST['tenDangNhap'];
-            $matKhau = $_POST['matKhau'];
-            $email = $_POST['email'];
-            $hoten = $_POST['hoten'];
-            $ngaySinh = $_POST['ngaySinh'];
-            $sdt = $_POST['sdt'];
-            $giotTinh = $_POST['giotTinh'];
+    <?php
 
-            if (!empty($tenDangNhap) && !empty($matKhau) && 
-                !empty($email) && 
-                !empty($hoten) && 
-                !empty($ngaySinh) && 
-                !empty($sdt)
-                // người dùng điền đủ thông tin
-            ) {
-                $sql = "INSERT INTO nguoi_dung(ten_dang_nhap, mat_khau, email, ho_ten, ngay_sinh, so_dien_thoai) 
-                VALUES('$tenDangNhap', '$matKhau', '$email', '$hoten', '$ngaySinh', '$sdt')";
-                $result = mysqli_query($conn, $sql);
+    // Kết nối database
+    $conn = mysqli_connect("localhost", "root", "", "netflix");
 
-                if ($result) {
-                    header('Location: index.php?page_layout=taikhoan');
-                } else {
-                    echo 'Thêm tài khoản thất bại';
-                }
-                
-            } else {
-                echo "<p style='color:red'>Vui lòng nhập đủ thông tin</p>";
+    if (!$conn) {
+        die("Kết nối thất bại: " . mysqli_connect_error());
+    }
+
+    if(isset($_POST['tenDangNhap']) &&
+       isset($_POST['matKhau']) &&
+       isset($_POST['email']) &&
+       isset($_POST['hoten']) &&
+       isset($_POST['ngaysinh']) &&
+       isset($_POST['sdt']) &&
+       isset($_POST['gioitinh']))
+    {
+        $tenDangNhap = $_POST['tenDangNhap'];
+        $matKhau = $_POST['matKhau'];
+        $email = $_POST['email'];
+        $hoten = $_POST['hoten'];
+        $ngaysinh = $_POST['ngaysinh'];
+        $sdt = $_POST['sdt'];
+        $gioitinh = $_POST['gioitinh'];
+
+        if(!empty($tenDangNhap) &&
+           !empty($matKhau) &&
+           !empty($email) &&
+           !empty($hoten) &&
+           !empty($ngaysinh) &&
+           !empty($sdt))
+        {
+            // Người dùng nhập đủ thông tin
+
+            $sql = "INSERT INTO nguoi_dung
+            (ten_dang_nhap, mat_khau, email, ho_ten, ngay_sinh, so_dien_thoai, gioi_tinh)
+            VALUES
+            ('$tenDangNhap', '$matKhau', '$email', '$hoten', '$ngaysinh', '$sdt', '$gioitinh')";
+
+            $result = mysqli_query($conn, $sql);
+
+            if($result) {
+                header("Location: index.php?page_layout=taikhoan");
+                exit;
             }
+            else {
+                echo "Thêm người dùng thất bại: " . mysqli_error($conn);
+            }
+
         }
+        else {
+            // Người dùng nhập thiếu thông tin
+            echo "<p style='color: red'>Vui lòng nhập đầy đủ thông tin</p>";
+        }
+    }
+
     ?>
+
 </body>
 </html>
